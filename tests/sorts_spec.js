@@ -71,6 +71,13 @@ describe('Selection sort should take an array and sort it', function() {
   });
 });
 
+// Test the Quick Sort
+describe('Quick sort should take an array and sort it', function() {
+  it('should properly sort an array', function() {
+    expect( sorts.quickSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+  });
+});
+
 
 
 
