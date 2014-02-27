@@ -98,6 +98,13 @@ describe('In-Place Quick sorts should take an array and sort it', function() {
 
     expect( time.simple ).to.be.greaterThan( time.optimized );
   });
+
+// Test the Merge Sort
+describe('Merge sort should take an array and sort it', function() {
+  it('should properly sort an array', function() {
+    expect( sorts.mergeSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+  });
+});
 });
 
 
