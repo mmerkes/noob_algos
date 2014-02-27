@@ -78,6 +78,28 @@ describe('Quick sort should take an array and sort it', function() {
   });
 });
 
+// In-Place Quick Sort
+describe('In-Place Quick sorts should take an array and sort it', function() {
+  it('should properly sort an array', function() {
+    expect( sorts.inplaceQuickSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+  });
+
+  it('should be faster than a regular quick sort', function() {
+    var results = sorts.testSpeed( 1000, 5, sorts.quickSort, 
+                                  sorts.inplaceQuickSort );
+
+    var time = { simple: 0, optimized: 0 };
+
+    for( var i = 0; i < 5; i++ ) {
+      time.simple += results[0][i];
+      time.optimized += results[1][i];
+    }
+    console.log( results );
+
+    expect( time.simple ).to.be.greaterThan( time.optimized );
+  });
+});
+
 
 
 
