@@ -17,10 +17,14 @@ module.exports = function(grunt) {
         curly: true,
         eqeqeq: false,
         eqnull: false,
+        node: true,
         "-W041": false, // ignores ==
         globals: {
           module: true,
-          console: true
+          console: true,
+          it: true,
+          describe: true,
+          should: true
         }
       },
       files: ['Gruntfile.js', 'tests/**/*.js', 'lib/**/*.js']

@@ -12,14 +12,14 @@ describe('Booyah should celebrate success', function() {
 // Test the Bubble Sort
 describe('Bubble sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.bubbleSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.bubbleSort, 1000 ) ).to.be.ok;
   });
 });
 
 // Optimized Bubble Sort
 describe('Bubble sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.optimizedBubbleSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.optimizedBubbleSort, 1000 ) ).to.be.ok;
   });
 
   it('should be faster than a regular bubble sort', function() {
@@ -39,14 +39,14 @@ describe('Bubble sort should take an array and sort it', function() {
 // Test the Insertion Sort
 describe('Insertion sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.insertionSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.insertionSort, 1000 ) ).to.be.ok;
   });
 });
 
 // Optimized Insertion Sort
-describe('Insertion sorts should take an array and sort it', function() {
+describe('Optimized Insertion sorts should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.optimizedInsertionSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.optimizedInsertionSort, 1000 ) ).to.be.ok;
   });
 
   it('should be faster than a regular insertion sort', function() {
@@ -67,25 +67,25 @@ describe('Insertion sorts should take an array and sort it', function() {
 // Test the Selection Sort
 describe('Selection sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.selectionSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.selectionSort, 1000 ) ).to.be.ok;
   });
 });
 
 // Test the Quick Sort
 describe('Quick sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.quickSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.quickSort, 100000 ) ).to.be.ok;
   });
 });
 
 // In-Place Quick Sort
 describe('In-Place Quick sorts should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.inplaceQuickSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.inplaceQuickSort, 100000 ) ).to.be.ok;
   });
 
   it('should be faster than a regular quick sort', function() {
-    var results = sorts.testSpeed( 1000, 5, sorts.quickSort, 
+    var results = sorts.testSpeed( 100000, 5, sorts.quickSort, 
                                   sorts.inplaceQuickSort );
 
     var time = { simple: 0, optimized: 0 };
@@ -94,17 +94,23 @@ describe('In-Place Quick sorts should take an array and sort it', function() {
       time.simple += results[0][i];
       time.optimized += results[1][i];
     }
-    console.log( results );
 
     expect( time.simple ).to.be.greaterThan( time.optimized );
   });
+});
 
 // Test the Merge Sort
 describe('Merge sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.mergeSort( [ 6,5,4,3,2,1 ] ).join('') ).to.equal('123456');
+    expect( sorts.testSorterAccuracy( sorts.mergeSort, 100000 ) ).to.be.ok;
   });
 });
+
+// Test the Shell Sort
+describe('Shell sort should take an array and sort it', function() {
+  it('should properly sort an array', function() {
+    expect( sorts.testSorterAccuracy( sorts.shellSort, 100000 ) ).to.be.ok;
+  });
 });
 
 
