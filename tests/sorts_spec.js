@@ -50,7 +50,7 @@ describe('Optimized Insertion sorts should take an array and sort it', function(
   });
 
   it('should be faster than a regular insertion sort', function() {
-    var results = sorts.testSpeed( 1000, 5, sorts.insertionSort, 
+    var results = sorts.testSpeed( 5000, 5, sorts.insertionSort, 
                                   sorts.optimizedInsertionSort );
 
     var time = { simple: 0, optimized: 0 };
@@ -81,7 +81,7 @@ describe('Quick sort should take an array and sort it', function() {
 // In-Place Quick Sort
 describe('In-Place Quick sorts should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.testSorterAccuracy( sorts.inplaceQuickSort, 100000 ) ).to.be.ok;
+    expect( sorts.testSorterAccuracy( sorts.inplaceQuickSort, 1000000 ) ).to.be.ok;
   });
 
   it('should be faster than a regular quick sort', function() {
@@ -102,14 +102,14 @@ describe('In-Place Quick sorts should take an array and sort it', function() {
 // Test the Merge Sort
 describe('Merge sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.testSorterAccuracy( sorts.mergeSort, 100000 ) ).to.be.ok;
+    expect( sorts.testSorterAccuracy( sorts.mergeSort, 1000000 ) ).to.be.ok;
   });
 });
 
 // Test the Shell Sort
 describe('Shell sort should take an array and sort it', function() {
   it('should properly sort an array', function() {
-    expect( sorts.testSorterAccuracy( sorts.shellSort, 100000 ) ).to.be.ok;
+    expect( sorts.testSorterAccuracy( sorts.shellSort, 1000000 ) ).to.be.ok;
   });
 });
 
