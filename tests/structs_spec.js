@@ -16,6 +16,7 @@ describe('User should be able to create a linked list and call its methods.', fu
 
     expect( list ).to.be.ok;
     expect( list.data ).to.equal( 1 );
+    expect( list instanceof structs.SinglyLinkedList ).to.be.ok;
   });
 });
 
