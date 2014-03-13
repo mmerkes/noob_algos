@@ -3,6 +3,17 @@ module.exports = function(grunt) {
   'use strict';
   // Project configuration.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
+    clean: ['dist'],
+
+    copy: {
+      build: {
+        cwd: 'source',
+        src: ['']
+      }
+    },
+
     simplemocha: {
       options: {
         timeout: 3000,
