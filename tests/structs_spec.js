@@ -25,6 +25,15 @@ describe('User should be able to create a linked list and call its methods.', fu
     expect( list.head.data ).to.equal(9);
   });
 
+  // addArray()
+  it('should allow you to add an array of values to the list', function() {
+    var list = new structs.SinglyLinkedList();
+    list.addFirst(9);
+    list.addArray( [8, 7, 6] );
+    expect( list.head.data ).to.equal(6);
+    expect( list.head.next.next.data ).to.equal(8);
+  });
+
   // removeFirst()
   it('should allow you to remove the first node and return the value', function() {
     var list = new structs.SinglyLinkedList();
@@ -110,6 +119,18 @@ describe('User should be able to create a linked list and call its methods.', fu
     list.addFirst(8);
     list.clear();
     expect( list.head ).to.equal(null);
+  });
+
+  // reverse()
+  it('should allow you to reverse the linked list', function() {
+    var list = new structs.SinglyLinkedList();
+    list.addFirst(9);
+    list.addFirst(8);
+    list.addFirst(7);
+    list.reverse();
+
+    expect( list.head.data ).to.equal(9);
+    expect( list.head.next.next.data ).to.equal(7);
   });
 });
 
