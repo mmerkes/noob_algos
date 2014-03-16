@@ -150,6 +150,20 @@ describe('User should be able to create a doubly linked list and call its method
     expect( list.head.data ).to.equal(8);
     expect( list.head.next.data ).to.equal(9);
     expect( list.head.next.prev.data ).to.equal(8);
+    expect( list.head.prev ).to.equal(null);
+  });
+
+  it('should allow you to remove the first node', function() {
+    var list = new structs.DoublyLinkedList();
+
+    list.addFirst(9);
+    list.addFirst(8);
+    list.addFirst(7);
+    var value = list.removeFirst();
+
+    expect( list.head.data ).to.equal(8);
+    expect( value ).to.equal(7);
+    expect( list.head.next.prev.data ).to.equal(8);
   });
 });
 
