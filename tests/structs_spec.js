@@ -215,6 +215,14 @@ describe('User should be able to create a binary search tree from a sorted ' +
     expect( tree.left.right ).to.equal(null);
     expect( tree.left.left.root ).to.equal(1);
   });
+
+  it('should be able to return an array of all value between a min and max', function() {
+    var list = new structs.BinarySearchTree();
+    list.arrayToBST([1,5,6,22,34,46,48,51,63,69,72,83,95]);
+    var result = list.rangeSearch( 7, 64 );
+
+    expect( result.join() ).to.equal('22,34,46,48,51,63');
+  });
 });
 
 
