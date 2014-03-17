@@ -132,6 +132,29 @@ describe('User should be able to create a linked list and call its methods.', fu
     expect( list.head.data ).to.equal(9);
     expect( list.head.next.next.data ).to.equal(7);
   });
+
+  // mergeSorted()
+  it('should allow you to merge sorted lists', function() {
+    var list1 = new structs.SinglyLinkedList();
+    list1.addFirst(9);
+    list1.addFirst(5);
+    list1.addFirst(2);
+    var list2 = new structs.SinglyLinkedList();
+    list2.addFirst(8);
+    list2.addFirst(6);
+    list2.addFirst(1);
+    var result = "";
+
+    var merged = list1.mergeSorted( list2 ).head;
+    while( merged ) {
+      result += merged.data;
+      merged = merged.next;
+    };
+
+    expect( result ).to.equal('125689');
+    expect( merged ).to.equal(null);
+    expect( list1.getLength() ).to.equal(6);
+  });
 });
 
 // Doubly Linked List
@@ -143,6 +166,7 @@ describe('User should be able to create a doubly linked list and call its method
     expect( list.head ).to.equal(null);
   });
 
+  // addFirst()
   it('should allow you to add nodes to the first position', function() {
     var list = new structs.DoublyLinkedList();
     list.addFirst(9);
@@ -153,6 +177,7 @@ describe('User should be able to create a doubly linked list and call its method
     expect( list.head.prev ).to.equal(null);
   });
 
+  // removeFirst()
   it('should allow you to remove the first node', function() {
     var list = new structs.DoublyLinkedList();
 
