@@ -192,6 +192,33 @@ describe('User should be able to create a doubly linked list and call its method
   });
 });
 
+// Binary Search Tree
+describe('User should be able to create a binary search tree from a sorted ' +
+  'array and called its methods', function() {
+  it('should create an empty binary search tree', function() {
+    var list = new structs.BinarySearchTree();
+
+    expect( list ).to.be.ok;
+    expect( list.root ).to.equal(null);
+  });
+
+  // arrayToBST
+  it('should accept a sorted array and turn it into a bst', function() {
+    var list = new structs.BinarySearchTree();
+    list.arrayToBST( [ 1,2,3,4 ] );
+    var tree = list.root;
+
+    expect( tree.root ).to.equal(3);
+    expect( tree.left.root ).to.equal(2);
+    expect( tree.right.root ).to.equal(4);
+    expect( tree.right.left ).to.equal(null);
+    expect( tree.left.right ).to.equal(null);
+    expect( tree.left.left.root ).to.equal(1);
+  });
+});
+
+
+
 
 
 
